@@ -20,20 +20,23 @@ namespace PR4
     public partial class Add : Window
     {
         Entities _db;
-        public Client Client { get; private set; }
-        public Coach Coach { get; private set; }
-        public Add(Entities db, object client)
+        public Permit permit { get; private set; }
+        public Humann humann { get; private set; }
+        
+        public Routee routee { get; private set; }
+        public Humann Coach { get; private set; }
+        public Add(Entities db, object permit)
         {
 
             InitializeComponent();
             this._db = _db;
             
-            var a = client as Permit;
+            var a = permit as Permit;
             if (a is Permit)
             {
-                Client = a;
+                 
                 
-                DataContext = Client;
+               
 
 
             }

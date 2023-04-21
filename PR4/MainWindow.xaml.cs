@@ -35,7 +35,7 @@ namespace PR4
             Add win = new Add(_db, new Permit());
             if (win.ShowDialog() == true)
             {
-                 cli = win.Client;
+                Permit permits = win.permit;
                 _db.Permit.Add(permits);
                 try
                 {
@@ -45,93 +45,97 @@ namespace PR4
                 Update();
 
             }
-            //DataContext = db.Client.ToList();
+            //DataContext = _db.Permit.ToList();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-            Client client = usersList.SelectedItem as Client;
-            if (client == null) return;
+            Permit permits = List.SelectedItem as Permit;
+            if (permits == null) return;
             try
             {
-                db.Client.Remove(client);
-                db.SaveChanges();
+                _db.Permit.Remove(permits);
+                _db.SaveChanges();
                 Update();
             }
             catch
             {
                 MessageBox.Show("Ошибка");
             }
-            DataContext = db.Client.ToList();
+            //DataContext = _db.Permit.ToList();
         }
 
         private void Edit(object sender, RoutedEventArgs e)
         {
-            Client client = usersList.SelectedItem as Client;
-            if (client == null) return;
-            DataEntry entry = new DataEntry(db, new Client
+            Permit permits = List.SelectedItem as Permit;
+            if (permits == null) return;
+            Add entry = new Add(_db, new Permit
             {
-                id = client.id,
-                FirstName = client.FirstName,
-                LastName = client.LastName,
-                MidleName = client.MidleName,
-                Gender1 = client.Gender1,
-                Number = client.Number,
+                Id = permits.Id,
+                Route = permits.Route,
+                Hotell = permits.Hotell,
+                Humann = permits.Humann,
+
             });
             if (entry.ShowDialog() == true)
             {
-                client = db.Client.Find(entry.Client.id);
-                if (client != null)
+                permits = _db.Permit.Find(entry.permit.Id);
+                if (permits != null)
                 {
-                    client.FirstName = entry.Client.FirstName;
-                    client.LastName = entry.Client.LastName;
-                    client.MidleName = entry.Client.MidleName;
-                    client.Gender1 = entry.Client.Gender1;
-                    client.Number = entry.Client.Number;
-                    db.SaveChanges();
-                    usersList.Items.Refresh();
+                    permits.Id = permits.Id;
+                    permits.Route = permits.Route;
+                    permits.Hotell = permits.Hotell;
+                    permits.Humann = permits.Humann;
+                    _db.SaveChanges();
+                    List.Items.Refresh();
                 }
 
             }
-            DataContext = db.Client.ToList();
+            //DataContext = db.Client.ToList();
 
         }
 
         private void Update()
         {
-            Clients = new ObservableCollection<Client>(db.Client);
-            usersList.ItemsSource = Clients;
+            permits = new ObservableCollection<Permit>(_db.Permit);
+            List.ItemsSource = permits;
         }
 
-        private void OpenCoach(object sender, RoutedEventArgs e)
-        {
-            Clientxaml clientxaml = new Clientxaml(db);
-            clientxaml.Show();
-        }
-
-        private void OpenSeasonTicket(object sender, RoutedEventArgs e)
-        {
-            SeasonTicketData ticket = new SeasonTicketData(db);
-            ticket.Show();
-        }
-
-        private void OpenTrainingPlan(object sender, RoutedEventArgs e)
-        {
-            PlanTraining planTraining = new PlanTraining(db);
-            planTraining.Show();
-        }
-
-        private void OpenWorkout(object sender, RoutedEventArgs e)
-        {
-            Workout workout = new Workout(db);
-            workout.Show();
-        }
-
-    }
-
-    private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        //private void OpenCoach(object sender, RoutedEventArgs e)
+        //{
+        //    Clientxaml clientxaml = new Clientxaml(db);
+        //    clientxaml.Show();
+        //}
+
+        //private void OpenSeasonTicket(object sender, RoutedEventArgs e)
+        //{
+        //    SeasonTicketData ticket = new SeasonTicketData(db);
+        //    ticket.Show();
+        //}
+
+        //private void OpenTrainingPlan(object sender, RoutedEventArgs e)
+        //{
+        //    PlanTraining planTraining = new PlanTraining(db);
+        //    planTraining.Show();
+        //}
+
+        //private void OpenWorkout(object sender, RoutedEventArgs e)
+        //{
+        //    Workout workout = new Workout(db);
+        //    workout.Show();
+        //}
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }
+
+  
+
