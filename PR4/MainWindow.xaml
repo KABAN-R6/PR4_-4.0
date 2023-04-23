@@ -55,9 +55,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Добавить" Margin="10,343,702,49" Click="Button_Click"/>
-        <Button Content="Изменить" Margin="103,343,609,49"/>
-        <Button Content="Удалить" Margin="196,343,516,49"/>
+        <Button Content="Добавить" Margin="10,343,0,49" Click="Button_Click" HorizontalAlignment="Left" Width="88"/>
+        <Button Content="Изменить" Margin="103,343,609,49" Click="Button_Click_1"/>
+        <Button Content="Удалить" Margin="196,343,516,49" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

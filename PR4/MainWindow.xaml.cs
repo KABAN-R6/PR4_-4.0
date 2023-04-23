@@ -21,55 +21,49 @@ namespace PR4
     /// </summary>
     public partial class MainWindow : Window
     {
-        Entities _db;
+        Entities db;
         public ObservableCollection<Permit> permits { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            _db = new Entities();
-            permits = new ObservableCollection<Permit>(_db.Permit);
+            db = new Entities();
+            permits = new ObservableCollection<Permit>(db.Permit);
             List.ItemsSource = permits;
         }
-        private void Add(object sender, RoutedEventArgs e)
+        
+
+        
+
+       
+
+        private void Update()
         {
-            Add win = new Add(_db, new Permit());
+            permits = new ObservableCollection<Permit>(db.Permit);
+            List.ItemsSource = permits;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Add win = new Add(db, new Permit());
             if (win.ShowDialog() == true)
             {
-                Permit permits = win.permit;
-                _db.Permit.Add(permits);
+                Permit permit = win.Permit;
+                db.Permit.Add(permit);
                 try
                 {
-                    _db.SaveChanges();
+                    db.SaveChanges();
                 }
                 catch { }
                 Update();
 
             }
-            //DataContext = _db.Permit.ToList();
         }
 
-        private void Delete(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Permit permits = List.SelectedItem as Permit;
             if (permits == null) return;
-            try
-            {
-                _db.Permit.Remove(permits);
-                _db.SaveChanges();
-                Update();
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка");
-            }
-            //DataContext = _db.Permit.ToList();
-        }
-
-        private void Edit(object sender, RoutedEventArgs e)
-        {
-            Permit permits = List.SelectedItem as Permit;
-            if (permits == null) return;
-            Add entry = new Add(_db, new Permit
+            Add entry = new Add(db, new Permit
             {
                 Id = permits.Id,
                 Route = permits.Route,
@@ -79,61 +73,40 @@ namespace PR4
             });
             if (entry.ShowDialog() == true)
             {
-                permits = _db.Permit.Find(entry.permit.Id);
+                permits = db.Permit.Find(entry.Permit.Id);
                 if (permits != null)
                 {
                     permits.Id = permits.Id;
                     permits.Route = permits.Route;
                     permits.Hotell = permits.Hotell;
                     permits.Humann = permits.Humann;
-                    _db.SaveChanges();
+                    db.SaveChanges();
                     List.Items.Refresh();
                 }
 
             }
-            //DataContext = db.Client.ToList();
+           
 
         }
 
-        private void Update()
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            permits = new ObservableCollection<Permit>(_db.Permit);
-            List.ItemsSource = permits;
+            Permit permits = List.SelectedItem as Permit;
+            if (permits == null) return;
+            try
+            {
+                db.Permit.Remove(permits);
+                db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        //private void OpenCoach(object sender, RoutedEventArgs e)
-        //{
-        //    Clientxaml clientxaml = new Clientxaml(db);
-        //    clientxaml.Show();
-        //}
-
-        //private void OpenSeasonTicket(object sender, RoutedEventArgs e)
-        //{
-        //    SeasonTicketData ticket = new SeasonTicketData(db);
-        //    ticket.Show();
-        //}
-
-        //private void OpenTrainingPlan(object sender, RoutedEventArgs e)
-        //{
-        //    PlanTraining planTraining = new PlanTraining(db);
-        //    planTraining.Show();
-        //}
-
-        //private void OpenWorkout(object sender, RoutedEventArgs e)
-        //{
-        //    Workout workout = new Workout(db);
-        //    workout.Show();
-        //}
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
     }
 }
 

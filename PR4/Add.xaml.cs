@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,28 +20,47 @@ namespace PR4
     /// </summary>
     public partial class Add : Window
     {
-        Entities _db;
-        public Permit permit { get; private set; }
-        public Humann humann { get; private set; }
-        
-        public Routee routee { get; private set; }
-        public Humann Coach { get; private set; }
+        Entities db;
+        public Permit Permit { get; private set; }
+        public Humann Humann { get; private set; }
+
+        public Routee Routee { get; private set;  }
+        public Hotell Hotell { get; private set; }
+
         public Add(Entities db, object permit)
         {
 
             InitializeComponent();
-            this._db = _db;
+            this.db = db;
             
-            var a = permit as Permit;
-            if (a is Permit)
+            var a = permit as Humann;
+            if (a is Humann)
             {
-                 
+
+                Humann = a;
                 
-               
+                DataContext = Humann;
+
 
 
             }
-            
+            var b = permit as Routee;
+            if (b is Routee)
+            {
+                Routee = b;
+                
+                DataContext = Routee;
+
+            }
+            var c = permit as Hotell;
+            if (c is Hotell)
+            {
+                Hotell = c;
+
+                DataContext = Hotell;
+
+            }
+
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
@@ -50,7 +70,7 @@ namespace PR4
 
         private void Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
