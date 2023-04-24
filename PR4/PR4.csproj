@@ -78,6 +78,9 @@
     <Compile Include="Cityy.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="countryadd.xaml.cs">
+      <DependentUpon>countryadd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Countryy.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Page Include="Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="countryadd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

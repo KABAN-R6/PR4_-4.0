@@ -23,12 +23,39 @@ namespace PR4
     {
         Entities db;
         public ObservableCollection<Permit> permits { get; set; }
+        public ObservableCollection<Cityy> cityys { get; set; }
+        public ObservableCollection<Countryy> countryys { get; set; }
+        public ObservableCollection<Routee> routees { get; set; }
+        public ObservableCollection<Servicce> Servicces { get; set; }
+        public ObservableCollection<Hotell> Hotells { get; set; }
+        public ObservableCollection<Humann> humanns { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
             db = new Entities();
             permits = new ObservableCollection<Permit>(db.Permit);
             List.ItemsSource = permits;
+            cityys = new ObservableCollection<Cityy>(db.Cityy);
+            List2.ItemsSource = cityys;
+
+            humanns = new ObservableCollection<Humann>(db.Humann);
+            List4.ItemsSource = humanns;
+
+            Servicces = new ObservableCollection<Servicce>(db.Servicce);
+            List7.ItemsSource = Servicces;
+
+            Hotells = new ObservableCollection<Hotell>(db.Hotell);
+            List6.ItemsSource = Hotells;
+
+            routees = new ObservableCollection<Routee>(db.Routee);
+            List5.ItemsSource = routees;
+
+            countryys = new ObservableCollection<Countryy>(db.Countryy);
+            List3.ItemsSource = countryys;
+
+            
+
         }
         
 
@@ -40,6 +67,11 @@ namespace PR4
         {
             permits = new ObservableCollection<Permit>(db.Permit);
             List.ItemsSource = permits;
+            cityys = new ObservableCollection<Cityy>(db.Cityy);
+            List2.ItemsSource = cityys;
+            countryys = new ObservableCollection<Countryy>(db.Countryy);
+            List3.ItemsSource = countryys;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -106,7 +138,50 @@ namespace PR4
             
         }
 
+        private void List_2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
+
+        private void List2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            countryadd win = new countryadd(db, new Countryy());
+            if (win.ShowDialog() == true)
+            {
+                Countryy countryy = win.countryy;
+                db.Countryy.Add(countryy);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch { }
+                Update();
+
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Countryy countryy = List3.SelectedItem as Countryy;
+            if (countryy == null) return;
+            try
+            {
+                db.Countryy.Remove(countryy);
+                db.SaveChanges();
+            }
+            catch { }
+            DataContext = db.Countryy.ToList();
+        }
     }
 }
 
