@@ -138,10 +138,7 @@ namespace PR4
             
         }
 
-        private void List_2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
 
         private void List2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

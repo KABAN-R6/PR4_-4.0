@@ -99,13 +99,23 @@
         </ListBox>
         <ListBox 
             x:Name="List3" Margin="352,137,1140,67" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.348"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="120"/>
-
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="120"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock 
                             Grid.Column="0"
@@ -115,8 +125,7 @@
                             Grid.Column="1"
                             Text="{Binding Name}" 
                             FontSize="16" />
-
-
+                        
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -241,7 +250,7 @@
         </ListBox>
         <TextBlock TextWrapping="Wrap" Text="Дорога" Margin="10,233,-10,-233" Grid.RowSpan="2"/>
         <TextBlock TextWrapping="Wrap" Text="Город" Margin="10,121,-10,-418" Grid.Row="1"/>
-        <TextBlock TextWrapping="Wrap" Text="Страна" Margin="352,121,-352,-418" Grid.Row="1"/>
+        <TextBlock TextWrapping="Wrap" Text="Страна" Margin="352,121,-352,-418" Grid.Row="1" Focusable="True"/>
         <TextBlock TextWrapping="Wrap" Text="Отели" Margin="746,233,-746,-233" Grid.RowSpan="2"/>
         <TextBlock TextWrapping="Wrap" Text="Наборы Услуги" Margin="746,64,-746,-298" Grid.Row="1"/>
         <TextBlock TextWrapping="Wrap" Text="Люди" Margin="746,10,-746,-10" Grid.RowSpan="2"/>
