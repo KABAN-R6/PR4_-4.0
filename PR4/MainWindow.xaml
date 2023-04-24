@@ -98,7 +98,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox 
-            x:Name="List3" Margin="352,137,1140,67" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1" IsEnabled="False">
+            x:Name="List3" Margin="352,137,1140,67" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
