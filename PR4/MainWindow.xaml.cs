@@ -71,6 +71,9 @@ namespace PR4
             List2.ItemsSource = cityys;
             countryys = new ObservableCollection<Countryy>(db.Countryy);
             List3.ItemsSource = countryys;
+            Servicces = new ObservableCollection<Servicce>(db.Servicce);
+            List7.ItemsSource = Servicces;
+
 
         }
 
@@ -164,7 +167,18 @@ namespace PR4
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-
+            Servicce servicce = List7.SelectedItem as Servicce;
+            if (servicce == null) return;
+            try
+            {
+                db.Servicce.Remove(servicce);
+                db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
@@ -185,12 +199,46 @@ namespace PR4
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
+            cityadd win = new cityadd(db, new Cityy());
+            if (win.ShowDialog() == true)
+            {
+                Cityy cityy = win.cityy;
+                db.Cityy.Add(cityy);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch { }
+                Update();
 
+            }
         }
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
+            Cityy cityy = List2.SelectedItem as Cityy;
+            if (cityy == null) return;
+            cityadd entry = new cityadd(db, new Cityy
+            {
+                Id = cityy.Id,
+                Name = cityy.Name,
 
+
+            });
+            if (entry.ShowDialog() == true)
+            {
+                cityy = db.Cityy.Find(entry.cityy.Id);
+                if (cityy != null)
+                {
+                    cityy.Id = entry.cityy.Id;
+                    cityy.Name = entry.cityy.Name;
+
+                    db.SaveChanges();
+                    List.Items.Refresh();
+                    Update();
+                }
+
+            }
         }
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
@@ -210,7 +258,18 @@ namespace PR4
 
         private void Button_Click_9(object sender, RoutedEventArgs e)
         {
-
+            Cityy cityy = List2.SelectedItem as Cityy;
+            if (cityy == null) return;
+            try
+            {
+                db.Cityy.Remove(cityy);
+                db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
 
         private void Button_Click_12(object sender, RoutedEventArgs e)
@@ -262,7 +321,29 @@ namespace PR4
 
         private void Button_Click_17(object sender, RoutedEventArgs e)
         {
+            Countryy countryy = List3.SelectedItem as Countryy;
+            if (countryy == null) return;
+            countryadd entry = new countryadd(db, new Countryy
+            {
+                Id = countryy.Id,
+                Name = countryy.Name,
 
+
+            });
+            if (entry.ShowDialog() == true)
+            {
+                countryy = db.Countryy.Find(entry.countryy.Id);
+                if (countryy != null)
+                {
+                    countryy.Id = entry.countryy.Id;
+                    countryy.Name = entry.countryy.Name;
+
+                    db.SaveChanges();
+                    List.Items.Refresh();
+                    Update();
+                }
+
+            }
         }
 
         private void Button_Click_18(object sender, RoutedEventArgs e)

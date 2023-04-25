@@ -244,7 +244,7 @@
         </ListBox>
 
         <Button Content="+" Margin="352,267,1256,0" Click="Button_Click_3" Grid.Row="1"/>
-        <Button Content="+" Margin="10,267,1602,0" Grid.Row="1" Click="Button_Click_6"/>
+        <Button Content="+" Margin="10,267,1602,0" Grid.Row="1" Click="Button_Click_6" Height="58" VerticalAlignment="Top"/>
         <Button Content="+" Margin="1189,119,459,130" Click="Button_Click_4" Grid.Row="1"/>
         <Button Content="+" Margin="1184,246,464,300" Grid.RowSpan="2" Click="Button_Click_16"/>
         <Button Content="+" Margin="10,69,1602,195" Grid.Row="1" Click="Button_Click_8"/>
