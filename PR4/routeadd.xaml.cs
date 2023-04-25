@@ -19,12 +19,53 @@ namespace PR4
     /// </summary>
     public partial class routeadd : Window
     {
-        public routeadd()
+        Entities1 db;
+
+        public Routee routees { get; private set; }
+        public Countryy countryy { get; private set; }
+
+        public Cityy cityy { get; private set; }
+        public routeadd(Entities1 db, object routee)
         {
             InitializeComponent();
+
+            this.db = db;
+            var a = routee as Routee;
+            if (a is Routee)
+            {
+                routee = a;
+                DataContext = routee;
+            }
+            var b = routee as Countryy;
+            if (b is Countryy)
+            {
+                routee = a;
+                DataContext = routee;
+            }
+            var c = routee as Cityy;
+            if (c is Cityy)
+            {
+                routee = a;
+                DataContext = routee;
+            }
+        }
+
+        private void Accept_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

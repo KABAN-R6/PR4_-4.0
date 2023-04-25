@@ -165,21 +165,7 @@ namespace PR4
             }
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            Servicce servicce = List7.SelectedItem as Servicce;
-            if (servicce == null) return;
-            try
-            {
-                db.Servicce.Remove(servicce);
-                db.SaveChanges();
-                Update();
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка");
-            }
-        }
+        
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
@@ -243,7 +229,19 @@ namespace PR4
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
+            routeadd win = new routeadd(db, new Routee());
+            if (win.ShowDialog() == true)
+            {
+                Routee routee = win.routees;
+                db.Routee.Add(routee);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch { }
+                Update();
 
+            }
         }
 
         private void Button_Click_10(object sender, RoutedEventArgs e)
@@ -349,6 +347,67 @@ namespace PR4
         private void Button_Click_18(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_43454(object sender, RoutedEventArgs e)
+        {
+            serviceadd win = new serviceadd(db, new Servicce());
+            if (win.ShowDialog() == true)
+            {
+                Servicce servicce = win.servicce;
+                db.Servicce.Add(servicce);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch { }
+                Update();
+
+            }
+        }
+
+        private void Button_Click_445(object sender, RoutedEventArgs e)
+        {
+          
+            Servicce servicce = List7.SelectedItem as Servicce;
+            if (servicce == null) return;
+            try
+            {
+                db.Servicce.Remove(servicce);
+                db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+        }
+
+        private void Button_Click_445345(object sender, RoutedEventArgs e)
+        {
+            Servicce servicce = List7.SelectedItem as Servicce;
+            if (servicce == null) return;
+            serviceadd entry = new serviceadd(db, new Servicce
+            {
+                Id = servicce.Id,
+                Name = servicce.Name,
+
+
+            });
+            if (entry.ShowDialog() == true)
+            {
+                servicce = db.Servicce.Find(entry.servicce.Id);
+                if (servicce != null)
+                {
+                    servicce.Id = entry.servicce.Id;
+                    servicce.Name = entry.servicce.Name;
+
+                    db.SaveChanges();
+                    List.Items.Refresh();
+                    Update();
+                }
+
+            }
         }
     }
 }

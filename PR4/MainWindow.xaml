@@ -170,17 +170,14 @@
                             Grid.Column="0"
                             Text="{Binding Id}" 
                             FontSize="16" />
+                        
                         <TextBlock 
                             Grid.Column="1"
-                            Text="{Binding Name}" 
+                            Text="{Binding Countryy.Id}" 
                             FontSize="16" />
                         <TextBlock 
                             Grid.Column="2"
-                            Text="{Binding Countryy.Name}" 
-                            FontSize="16" />
-                        <TextBlock 
-                            Grid.Column="3"
-                            Text="{Binding Cityy.Name}" 
+                            Text="{Binding Cityy.Id}" 
                             FontSize="16" />
 
 
@@ -245,7 +242,7 @@
 
         <Button Content="+" Margin="352,267,1256,0" Click="Button_Click_3" Grid.Row="1"/>
         <Button Content="+" Margin="10,267,1602,0" Grid.Row="1" Click="Button_Click_6" Height="58" VerticalAlignment="Top"/>
-        <Button Content="+" Margin="1189,119,459,130" Click="Button_Click_4" Grid.Row="1"/>
+        <Button Content="+" Margin="1189,119,459,130" Click="Button_Click_43454" Grid.Row="1"/>
         <Button Content="+" Margin="1184,246,464,300" Grid.RowSpan="2" Click="Button_Click_16"/>
         <Button Content="+" Margin="10,69,1602,195" Grid.Row="1" Click="Button_Click_8"/>
         <Button Content="+" Margin="1250,36,398,202" Click="Button_Click_13"/>
@@ -259,8 +256,8 @@
         <Button Content="удолить" Margin="1344,37,304,202" Click="Button_Click_15"/>
         <Button Content="изменить" Margin="1229,246,419,300" Grid.RowSpan="2" Click="Button_Click_17"/>
         <Button Content="удолить" Margin="1276,246,372,300" Grid.RowSpan="2" Click="Button_Click_18"/>
-        <Button Content="изменить" Margin="1236,119,412,129" Click="Button_Click_4" Grid.Row="1"/>
-        <Button Content="удолить" Margin="1283,118,365,130" Click="Button_Click_4" Grid.Row="1"/>
+        <Button Content="изменить" Margin="1236,119,412,129" Click="Button_Click_445345" Grid.Row="1"/>
+        <Button Content="удолить" Margin="1283,118,365,130" Click="Button_Click_445" Grid.Row="1"/>
         <TextBlock TextWrapping="Wrap" Text="Услуги" Margin="746,89,823,206" Grid.Row="1"/>
         <TextBlock TextWrapping="Wrap" Text="отели" Margin="746,217,823,71"/>
         <TextBlock TextWrapping="Wrap" Margin="746,10,823,283"><Run Language="ru-ru" Text="Люди"/></TextBlock>
