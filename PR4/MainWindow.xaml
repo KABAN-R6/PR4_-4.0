@@ -53,7 +53,7 @@
                             Text="{Binding Humann.Full_name}" 
                             FontSize="16" />
                         <TextBlock 
-                            Grid.Column="2"
+                            Grid.Column="3"
                             Text="{Binding Hotell.Name}" 
                             FontSize="16" />
                     </Grid>
