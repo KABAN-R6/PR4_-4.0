@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PR4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="652" Width="1796">
+        Title="MainWindow" Height="652" Width="1796" ResizeMode="NoResize">
     <Grid Background="Beige" Margin="0,0,0,-6" HorizontalAlignment="Center" Width="1796">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="272*"/>
@@ -42,15 +42,19 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock 
                             Grid.Column="0"
-                            Text="{Binding Routee.Name}" 
+                            Text="{Binding Id}" 
                             FontSize="16" />
                         <TextBlock 
                             Grid.Column="1"
-                            Text="{Binding Humann1.Full_name}" 
+                            Text="{Binding Routee.Name}" 
                             FontSize="16" />
                         <TextBlock 
                             Grid.Column="2"
-                            Text="{Binding Hotell1.Name}" 
+                            Text="{Binding Humann.Full_name}" 
+                            FontSize="16" />
+                        <TextBlock 
+                            Grid.Column="2"
+                            Text="{Binding Hotell.Name}" 
                             FontSize="16" />
                     </Grid>
                 </DataTemplate>
@@ -126,7 +130,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox 
-            x:Name="List4" Margin="474,34,446,122" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Column="1">
+            x:Name="List4" Margin="474,34,512,122" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -245,24 +249,24 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="+" Margin="80,267,1256,0" Click="Button_Click_3" Grid.Row="1" Grid.Column="1"/>
-        <Button Content="+" Margin="10,267,184,0" Grid.Row="1" Click="Button_Click_6" Height="58" VerticalAlignment="Top"/>
-        <Button Content="+" Margin="918,119,459,130" Click="Button_Click_43454" Grid.Row="1" Grid.Column="1"/>
-        <Button Content="+" Margin="912,246,464,300" Grid.RowSpan="2" Click="Button_Click_16" Grid.Column="1"/>
+        <Button Content="+" Margin="80,257,1256,10" Click="Button_Click_3" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="+" Margin="10,258,184,9" Grid.Row="1" Click="Button_Click_6" Height="58" />
+        <Button Content="+" Margin="918,119,419,130" Click="Button_Click_43454" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="+" Margin="918,246,419,300" Grid.RowSpan="2" Click="Button_Click_16" Grid.Column="1"/>
         <Button Content="+" Margin="10,69,184,195" Grid.Row="1" Click="Button_Click_8"/>
-        <Button Content="+" Margin="978,36,398,202" Click="Button_Click_13" Grid.Column="1"/>
-        <Button Content="Изменить" Margin="168,267,1150,0" Grid.Row="1" Click="Button_Click_12" Grid.Column="1"/>
-        <Button Content="удолить" Margin="274,267,1042,0" Grid.Row="1" Click="Button_Click_5" Grid.Column="1"/>
-        <Button Content="изменить" Margin="93,267,100,0" Grid.Row="1" Click="Button_Click_7"/>
-        <Button Content="Удолить" Margin="177,267,16,0" Grid.Row="1" Click="Button_Click_9"/>
-        <Button Content="изменить" Margin="93,69,100,0" Grid.Row="1" Click="Button_Click_10" Height="61" VerticalAlignment="Top"/>
-        <Button Content="удолить" Margin="178,69,16,195" Grid.Row="1" Click="Button_Click_11"/>
-        <Button Content="изменить" Margin="1026,37,351,202" Click="Button_Click_14" Grid.Column="1"/>
-        <Button Content="удолить" Margin="1072,37,304,202" Click="Button_Click_15" Grid.Column="1"/>
-        <Button Content="изменить" Margin="958,246,419,300" Grid.RowSpan="2" Click="Button_Click_17" Grid.Column="1"/>
-        <Button Content="удолить" Margin="1004,246,372,300" Grid.RowSpan="2" Click="Button_Click_18" Grid.Column="1"/>
-        <Button Content="изменить" Margin="964,119,412,129" Click="Button_Click_445345" Grid.Row="1" Grid.Column="1"/>
-        <Button Content="удолить" Margin="1012,118,365,130" Click="Button_Click_445" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="+" Margin="918,37,419,201" Click="Button_Click_13" Grid.Column="1"/>
+        <Button Content="Изменить" Margin="167,257,1151,11" Grid.Row="1" Click="Button_Click_12" Grid.Column="1"/>
+        <Button Content="Удалить" Margin="272,256,1044,11" Grid.Row="1" Click="Button_Click_5" Grid.Column="1"/>
+        <Button Content="Изменить" Margin="93,257,100,10" Grid.Row="1" Click="Button_Click_7"/>
+        <Button Content="Удалить" Margin="177,257,16,10" Grid.Row="1" Click="Button_Click_9"/>
+        <Button Content="Изменить" Margin="93,69,100,195" Grid.Row="1" Click="Button_Click_10" />
+        <Button Content="Удалить" Margin="178,69,16,195" Grid.Row="1" Click="Button_Click_11"/>
+        <Button Content="Изменить" Margin="1005,37,330,202" Click="Button_Click_14" Grid.Column="1"/>
+        <Button Content="Удалить" Margin="1093,38,244,201" Click="Button_Click_15" Grid.Column="1"/>
+        <Button Content="Изменить" Margin="1005,246,330,300" Grid.RowSpan="2" Click="Button_Click_17" Grid.Column="1"/>
+        <Button Content="Удалить" Margin="1093,246,244,300" Grid.RowSpan="2" Click="Button_Click_18" Grid.Column="1"/>
+        <Button Content="Изменить" Margin="1005,119,330,130" Click="Button_Click_445345" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="Удалить" Margin="1093,119,244,130" Click="Button_Click_445" Grid.Row="1" Grid.Column="1"/>
         <TextBlock TextWrapping="Wrap" Text="Услуги" Margin="474,89,823,206" Grid.Row="1" Grid.Column="1"/>
         <TextBlock TextWrapping="Wrap" Text="отели" Margin="474,217,823,71" Grid.Column="1"/>
         <TextBlock TextWrapping="Wrap" Margin="474,10,823,283" Grid.Column="1"><Run Language="ru-ru" Text="Люди"/></TextBlock>

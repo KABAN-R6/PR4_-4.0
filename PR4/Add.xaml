@@ -24,9 +24,9 @@
         <TextBlock Text="Человек" Grid.Row="2" />
 
 
-        <TextBox Text="{Binding Routee.Name}" Grid.Column="1" />
-        <TextBox Text="{Binding Hotell1.Name}" Grid.Column="1" Grid.Row="1" />
-        <TextBox Text="{Binding Humann1.Full_Name}" Grid.Column="1" Grid.Row="2" />
+        <TextBox Text="{Binding Route}" Grid.Column="1" />
+        <TextBox Text="{Binding Hotel}" Grid.Column="1" Grid.Row="1" />
+        <TextBox Text="{Binding Human}" Grid.Column="1" Grid.Row="2" />
         <StackPanel 
             HorizontalAlignment="Center" 
             Orientation="Horizontal" 

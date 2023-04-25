@@ -65,8 +65,7 @@ namespace PR4
 
         private void Update()
         {
-            permits = new ObservableCollection<Permit>(db.Permit);
-            List.ItemsSource = permits;
+            
             cityys = new ObservableCollection<Cityy>(db.Cityy);
             List2.ItemsSource = cityys;
             countryys = new ObservableCollection<Countryy>(db.Countryy);
@@ -79,6 +78,8 @@ namespace PR4
             List4.ItemsSource = humanns;
             Hotells = new ObservableCollection<Hotell>(db.Hotell);
             List6.ItemsSource = Hotells;
+            permits = new ObservableCollection<Permit>(db.Permit);
+            List.ItemsSource = permits;
 
 
         }

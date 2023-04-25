@@ -33,33 +33,13 @@ namespace PR4
             InitializeComponent();
             this.db = db;
             
-            var a = permit as Humann;
-            if (a is Humann)
+            var a = permit as Permit;
+            if (a is Permit)
             {
-
-                Humann = a;
-                
-                DataContext = Humann;
-
-
-
+                Permit = a;
+                DataContext = Permit;
             }
-            var b = permit as Routee;
-            if (b is Routee)
-            {
-                Routee = b;
-                
-                DataContext = Routee;
-
-            }
-            var c = permit as Hotell;
-            if (c is Hotell)
-            {
-                Hotell = c;
-
-                DataContext = Hotell;
-
-            }
+            
 
         }
 
@@ -70,7 +50,7 @@ namespace PR4
 
         private void Click(object sender, RoutedEventArgs e)
         {
-            
+            DialogResult = true;
         }
     }
 }
