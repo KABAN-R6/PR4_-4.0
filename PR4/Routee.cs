@@ -21,9 +21,9 @@ namespace PR4
         }
     
         public int Id { get; set; }
+        public string Name { get; set; }
         public Nullable<int> Country { get; set; }
         public Nullable<int> City { get; set; }
-        public string Name { get; set; }
     
         public virtual Cityy Cityy { get; set; }
         public virtual Countryy Countryy { get; set; }

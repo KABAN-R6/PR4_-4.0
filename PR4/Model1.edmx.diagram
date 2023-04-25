@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66489bf81f4f4791bfe3163687cee979" Name="Diagram1">
+        <EntityTypeShape EntityType="Model1.Cityy" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Countryy" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Hotell" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Humann" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Permit" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Routee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Servicce" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="Model1.FK__Routee__City__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK__Routee__Country__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK__Hotell__Service__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK__Permit__Hotel__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK__Permit__Human__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK__Permit__Route__4AB81AF0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

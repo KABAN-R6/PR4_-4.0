@@ -19,10 +19,10 @@ namespace PR4
     /// </summary>
     public partial class countryadd : Window
     {
-        Entities db;
+        Entities1 db;
 
         public Countryy countryy { get; private set; }
-        public countryadd(Entities db, object country)
+        public countryadd(Entities1 db, object country)
         {
             InitializeComponent();
             this.db = db;

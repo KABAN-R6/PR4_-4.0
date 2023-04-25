@@ -20,14 +20,14 @@ namespace PR4
     /// </summary>
     public partial class Add : Window
     {
-        Entities db;
+        Entities1 db;
         public Permit Permit { get; private set; }
         public Humann Humann { get; private set; }
 
         public Routee Routee { get; private set;  }
         public Hotell Hotell { get; private set; }
 
-        public Add(Entities db, object permit)
+        public Add(Entities1 db, object permit)
         {
 
             InitializeComponent();

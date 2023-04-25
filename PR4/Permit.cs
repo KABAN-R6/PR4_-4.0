@@ -15,12 +15,12 @@ namespace PR4
     public partial class Permit
     {
         public int Id { get; set; }
+        public Nullable<int> Human { get; set; }
+        public Nullable<int> Hotel { get; set; }
         public Nullable<int> Route { get; set; }
-        public Nullable<int> Hotell { get; set; }
-        public Nullable<int> Humann { get; set; }
     
-        public virtual Hotell Hotell1 { get; set; }
-        public virtual Humann Humann1 { get; set; }
+        public virtual Hotell Hotell { get; set; }
+        public virtual Humann Humann { get; set; }
         public virtual Routee Routee { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace PR4
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class Entities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities1()
+            : base("name=Entities1")
         {
         }
     
@@ -32,6 +32,5 @@ namespace PR4
         public virtual DbSet<Permit> Permit { get; set; }
         public virtual DbSet<Routee> Routee { get; set; }
         public virtual DbSet<Servicce> Servicce { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

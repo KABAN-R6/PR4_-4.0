@@ -4,26 +4,26 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Model1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cityy">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Countryy">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Hotell">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Service" Type="int" />
         </EntityType>
@@ -31,7 +31,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Full_name" Type="nvarchar" MaxLength="50" />
           <Property Name="Age" Type="int" />
         </EntityType>
@@ -39,38 +39,28 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Human" Type="int" />
+          <Property Name="Hotel" Type="int" />
           <Property Name="Route" Type="int" />
-          <Property Name="Hotell" Type="int" />
-          <Property Name="Humann" Type="int" />
         </EntityType>
         <EntityType Name="Routee">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Country" Type="int" />
           <Property Name="City" Type="int" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Servicce">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <Association Name="FK_Hotell_Servicce">
+        <Association Name="FK__Hotell__Service__403A8C7D">
           <End Role="Servicce" Type="Self.Servicce" Multiplicity="0..1" />
           <End Role="Hotell" Type="Self.Hotell" Multiplicity="*" />
           <ReferentialConstraint>
@@ -82,7 +72,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Permit_Hotell">
+        <Association Name="FK__Permit__Hotel__49C3F6B7">
           <End Role="Hotell" Type="Self.Hotell" Multiplicity="0..1" />
           <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -90,11 +80,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Permit">
-              <PropertyRef Name="Hotell" />
+              <PropertyRef Name="Hotel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Permit_Humann">
+        <Association Name="FK__Permit__Human__48CFD27E">
           <End Role="Humann" Type="Self.Humann" Multiplicity="0..1" />
           <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -102,11 +92,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Permit">
-              <PropertyRef Name="Humann" />
+              <PropertyRef Name="Human" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Permit_Routee">
+        <Association Name="FK__Permit__Route__4AB81AF0">
           <End Role="Routee" Type="Self.Routee" Multiplicity="0..1" />
           <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,7 +108,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Routee_Cityy">
+        <Association Name="FK__Routee__City__440B1D61">
           <End Role="Cityy" Type="Self.Cityy" Multiplicity="0..1" />
           <End Role="Routee" Type="Self.Routee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -130,7 +120,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Routee_Countryy">
+        <Association Name="FK__Routee__Country__4316F928">
           <End Role="Countryy" Type="Self.Countryy" Multiplicity="0..1" />
           <End Role="Routee" Type="Self.Routee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +132,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище ModelContainer">
+        <EntityContainer Name="Хранилище Model1Container">
           <EntitySet Name="Cityy" EntityType="Self.Cityy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countryy" EntityType="Self.Countryy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hotell" EntityType="Self.Hotell" Schema="dbo" store:Type="Tables" />
@@ -150,28 +140,27 @@
           <EntitySet Name="Permit" EntityType="Self.Permit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Routee" EntityType="Self.Routee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicce" EntityType="Self.Servicce" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Hotell_Servicce" Association="Self.FK_Hotell_Servicce">
+          <AssociationSet Name="FK__Hotell__Service__403A8C7D" Association="Self.FK__Hotell__Service__403A8C7D">
             <End Role="Servicce" EntitySet="Servicce" />
             <End Role="Hotell" EntitySet="Hotell" />
           </AssociationSet>
-          <AssociationSet Name="FK_Permit_Hotell" Association="Self.FK_Permit_Hotell">
+          <AssociationSet Name="FK__Permit__Hotel__49C3F6B7" Association="Self.FK__Permit__Hotel__49C3F6B7">
             <End Role="Hotell" EntitySet="Hotell" />
             <End Role="Permit" EntitySet="Permit" />
           </AssociationSet>
-          <AssociationSet Name="FK_Permit_Humann" Association="Self.FK_Permit_Humann">
+          <AssociationSet Name="FK__Permit__Human__48CFD27E" Association="Self.FK__Permit__Human__48CFD27E">
             <End Role="Humann" EntitySet="Humann" />
             <End Role="Permit" EntitySet="Permit" />
           </AssociationSet>
-          <AssociationSet Name="FK_Permit_Routee" Association="Self.FK_Permit_Routee">
+          <AssociationSet Name="FK__Permit__Route__4AB81AF0" Association="Self.FK__Permit__Route__4AB81AF0">
             <End Role="Routee" EntitySet="Routee" />
             <End Role="Permit" EntitySet="Permit" />
           </AssociationSet>
-          <AssociationSet Name="FK_Routee_Cityy" Association="Self.FK_Routee_Cityy">
+          <AssociationSet Name="FK__Routee__City__440B1D61" Association="Self.FK__Routee__City__440B1D61">
             <End Role="Cityy" EntitySet="Cityy" />
             <End Role="Routee" EntitySet="Routee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Routee_Countryy" Association="Self.FK_Routee_Countryy">
+          <AssociationSet Name="FK__Routee__Country__4316F928" Association="Self.FK__Routee__Country__4316F928">
             <End Role="Countryy" EntitySet="Countryy" />
             <End Role="Routee" EntitySet="Routee" />
           </AssociationSet>
@@ -180,85 +169,75 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Cityy">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Routee" Relationship="Self.FK_Routee_Cityy" FromRole="Cityy" ToRole="Routee" />
+          <NavigationProperty Name="Routee" Relationship="Self.FK__Routee__City__440B1D61" FromRole="Cityy" ToRole="Routee" />
         </EntityType>
         <EntityType Name="Countryy">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Routee" Relationship="Self.FK_Routee_Countryy" FromRole="Countryy" ToRole="Routee" />
+          <NavigationProperty Name="Routee" Relationship="Self.FK__Routee__Country__4316F928" FromRole="Countryy" ToRole="Routee" />
         </EntityType>
         <EntityType Name="Hotell">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Service" Type="Int32" />
-          <NavigationProperty Name="Servicce" Relationship="Self.FK_Hotell_Servicce" FromRole="Hotell" ToRole="Servicce" />
-          <NavigationProperty Name="Permit" Relationship="Self.FK_Permit_Hotell" FromRole="Hotell" ToRole="Permit" />
+          <NavigationProperty Name="Servicce" Relationship="Self.FK__Hotell__Service__403A8C7D" FromRole="Hotell" ToRole="Servicce" />
+          <NavigationProperty Name="Permit" Relationship="Self.FK__Permit__Hotel__49C3F6B7" FromRole="Hotell" ToRole="Permit" />
         </EntityType>
         <EntityType Name="Humann">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Age" Type="Int32" />
-          <NavigationProperty Name="Permit" Relationship="Self.FK_Permit_Humann" FromRole="Humann" ToRole="Permit" />
+          <NavigationProperty Name="Permit" Relationship="Self.FK__Permit__Human__48CFD27E" FromRole="Humann" ToRole="Permit" />
         </EntityType>
         <EntityType Name="Permit">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Human" Type="Int32" />
+          <Property Name="Hotel" Type="Int32" />
           <Property Name="Route" Type="Int32" />
-          <Property Name="Hotell" Type="Int32" />
-          <Property Name="Humann" Type="Int32" />
-          <NavigationProperty Name="Hotell1" Relationship="Self.FK_Permit_Hotell" FromRole="Permit" ToRole="Hotell" />
-          <NavigationProperty Name="Humann1" Relationship="Self.FK_Permit_Humann" FromRole="Permit" ToRole="Humann" />
-          <NavigationProperty Name="Routee" Relationship="Self.FK_Permit_Routee" FromRole="Permit" ToRole="Routee" />
+          <NavigationProperty Name="Hotell" Relationship="Self.FK__Permit__Hotel__49C3F6B7" FromRole="Permit" ToRole="Hotell" />
+          <NavigationProperty Name="Humann" Relationship="Self.FK__Permit__Human__48CFD27E" FromRole="Permit" ToRole="Humann" />
+          <NavigationProperty Name="Routee" Relationship="Self.FK__Permit__Route__4AB81AF0" FromRole="Permit" ToRole="Routee" />
         </EntityType>
         <EntityType Name="Routee">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Country" Type="Int32" />
           <Property Name="City" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Cityy" Relationship="Self.FK_Routee_Cityy" FromRole="Routee" ToRole="Cityy" />
-          <NavigationProperty Name="Countryy" Relationship="Self.FK_Routee_Countryy" FromRole="Routee" ToRole="Countryy" />
-          <NavigationProperty Name="Permit" Relationship="Self.FK_Permit_Routee" FromRole="Routee" ToRole="Permit" />
+          <NavigationProperty Name="Cityy" Relationship="Self.FK__Routee__City__440B1D61" FromRole="Routee" ToRole="Cityy" />
+          <NavigationProperty Name="Countryy" Relationship="Self.FK__Routee__Country__4316F928" FromRole="Routee" ToRole="Countryy" />
+          <NavigationProperty Name="Permit" Relationship="Self.FK__Permit__Route__4AB81AF0" FromRole="Routee" ToRole="Permit" />
         </EntityType>
         <EntityType Name="Servicce">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Hotell" Relationship="Self.FK_Hotell_Servicce" FromRole="Servicce" ToRole="Hotell" />
+          <NavigationProperty Name="Hotell" Relationship="Self.FK__Hotell__Service__403A8C7D" FromRole="Servicce" ToRole="Hotell" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FK_Routee_Cityy">
+        <Association Name="FK__Routee__City__440B1D61">
           <End Role="Cityy" Type="Self.Cityy" Multiplicity="0..1" />
           <End Role="Routee" Type="Self.Routee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -270,7 +249,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Routee_Countryy">
+        <Association Name="FK__Routee__Country__4316F928">
           <End Role="Countryy" Type="Self.Countryy" Multiplicity="0..1" />
           <End Role="Routee" Type="Self.Routee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -282,7 +261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Hotell_Servicce">
+        <Association Name="FK__Hotell__Service__403A8C7D">
           <End Role="Servicce" Type="Self.Servicce" Multiplicity="0..1" />
           <End Role="Hotell" Type="Self.Hotell" Multiplicity="*" />
           <ReferentialConstraint>
@@ -294,7 +273,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Permit_Hotell">
+        <Association Name="FK__Permit__Hotel__49C3F6B7">
           <End Role="Hotell" Type="Self.Hotell" Multiplicity="0..1" />
           <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -302,11 +281,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Permit">
-              <PropertyRef Name="Hotell" />
+              <PropertyRef Name="Hotel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Permit_Humann">
+        <Association Name="FK__Permit__Human__48CFD27E">
           <End Role="Humann" Type="Self.Humann" Multiplicity="0..1" />
           <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -314,11 +293,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Permit">
-              <PropertyRef Name="Humann" />
+              <PropertyRef Name="Human" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Permit_Routee">
+        <Association Name="FK__Permit__Route__4AB81AF0">
           <End Role="Routee" Type="Self.Routee" Multiplicity="0..1" />
           <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -330,7 +309,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cityy" EntityType="Self.Cityy" />
           <EntitySet Name="Countryy" EntityType="Self.Countryy" />
           <EntitySet Name="Hotell" EntityType="Self.Hotell" />
@@ -338,28 +317,27 @@
           <EntitySet Name="Permit" EntityType="Self.Permit" />
           <EntitySet Name="Routee" EntityType="Self.Routee" />
           <EntitySet Name="Servicce" EntityType="Self.Servicce" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <AssociationSet Name="FK_Routee_Cityy" Association="Self.FK_Routee_Cityy">
+          <AssociationSet Name="FK__Routee__City__440B1D61" Association="Self.FK__Routee__City__440B1D61">
             <End Role="Cityy" EntitySet="Cityy" />
             <End Role="Routee" EntitySet="Routee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Routee_Countryy" Association="Self.FK_Routee_Countryy">
+          <AssociationSet Name="FK__Routee__Country__4316F928" Association="Self.FK__Routee__Country__4316F928">
             <End Role="Countryy" EntitySet="Countryy" />
             <End Role="Routee" EntitySet="Routee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Hotell_Servicce" Association="Self.FK_Hotell_Servicce">
+          <AssociationSet Name="FK__Hotell__Service__403A8C7D" Association="Self.FK__Hotell__Service__403A8C7D">
             <End Role="Servicce" EntitySet="Servicce" />
             <End Role="Hotell" EntitySet="Hotell" />
           </AssociationSet>
-          <AssociationSet Name="FK_Permit_Hotell" Association="Self.FK_Permit_Hotell">
+          <AssociationSet Name="FK__Permit__Hotel__49C3F6B7" Association="Self.FK__Permit__Hotel__49C3F6B7">
             <End Role="Hotell" EntitySet="Hotell" />
             <End Role="Permit" EntitySet="Permit" />
           </AssociationSet>
-          <AssociationSet Name="FK_Permit_Humann" Association="Self.FK_Permit_Humann">
+          <AssociationSet Name="FK__Permit__Human__48CFD27E" Association="Self.FK__Permit__Human__48CFD27E">
             <End Role="Humann" EntitySet="Humann" />
             <End Role="Permit" EntitySet="Permit" />
           </AssociationSet>
-          <AssociationSet Name="FK_Permit_Routee" Association="Self.FK_Permit_Routee">
+          <AssociationSet Name="FK__Permit__Route__4AB81AF0" Association="Self.FK__Permit__Route__4AB81AF0">
             <End Role="Routee" EntitySet="Routee" />
             <End Role="Permit" EntitySet="Permit" />
           </AssociationSet>
@@ -369,9 +347,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Model1Container" CdmEntityContainer="Entities1">
           <EntitySetMapping Name="Cityy">
-            <EntityTypeMapping TypeName="Model.Cityy">
+            <EntityTypeMapping TypeName="Model1.Cityy">
               <MappingFragment StoreEntitySet="Cityy">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -379,7 +357,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Countryy">
-            <EntityTypeMapping TypeName="Model.Countryy">
+            <EntityTypeMapping TypeName="Model1.Countryy">
               <MappingFragment StoreEntitySet="Countryy">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -387,7 +365,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hotell">
-            <EntityTypeMapping TypeName="Model.Hotell">
+            <EntityTypeMapping TypeName="Model1.Hotell">
               <MappingFragment StoreEntitySet="Hotell">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -396,7 +374,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Humann">
-            <EntityTypeMapping TypeName="Model.Humann">
+            <EntityTypeMapping TypeName="Model1.Humann">
               <MappingFragment StoreEntitySet="Humann">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Full_name" ColumnName="Full_name" />
@@ -405,41 +383,30 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Permit">
-            <EntityTypeMapping TypeName="Model.Permit">
+            <EntityTypeMapping TypeName="Model1.Permit">
               <MappingFragment StoreEntitySet="Permit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Human" ColumnName="Human" />
+                <ScalarProperty Name="Hotel" ColumnName="Hotel" />
                 <ScalarProperty Name="Route" ColumnName="Route" />
-                <ScalarProperty Name="Hotell" ColumnName="Hotell" />
-                <ScalarProperty Name="Humann" ColumnName="Humann" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Routee">
-            <EntityTypeMapping TypeName="Model.Routee">
+            <EntityTypeMapping TypeName="Model1.Routee">
               <MappingFragment StoreEntitySet="Routee">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Servicce">
-            <EntityTypeMapping TypeName="Model.Servicce">
+            <EntityTypeMapping TypeName="Model1.Servicce">
               <MappingFragment StoreEntitySet="Servicce">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Model.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

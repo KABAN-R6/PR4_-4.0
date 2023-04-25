@@ -21,7 +21,7 @@ namespace PR4
     /// </summary>
     public partial class MainWindow : Window
     {
-        Entities db;
+        Entities1 db;
         public ObservableCollection<Permit> permits { get; set; }
         public ObservableCollection<Cityy> cityys { get; set; }
         public ObservableCollection<Countryy> countryys { get; set; }
@@ -33,7 +33,7 @@ namespace PR4
         public MainWindow()
         {
             InitializeComponent();
-            db = new Entities();
+            db = new Entities1();
             permits = new ObservableCollection<Permit>(db.Permit);
             List.ItemsSource = permits;
             cityys = new ObservableCollection<Cityy>(db.Cityy);
@@ -175,9 +175,99 @@ namespace PR4
             {
                 db.Countryy.Remove(countryy);
                 db.SaveChanges();
+                Update();
             }
-            catch { }
-            DataContext = db.Countryy.ToList();
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_12(object sender, RoutedEventArgs e)
+        {
+            Countryy countryy = List3.SelectedItem as Countryy;
+            if (countryy == null) return;
+            countryadd entry = new countryadd(db, new Countryy
+            {
+                Id = countryy.Id,
+                Name = countryy.Name,
+                
+
+            });
+            if (entry.ShowDialog() == true)
+            {
+                countryy = db.Countryy.Find(entry.countryy.Id);
+                if (countryy != null)
+                {
+                    countryy.Id = entry.countryy.Id;
+                    countryy.Name = entry.countryy.Name;
+                    
+                    db.SaveChanges();
+                    List.Items.Refresh();
+                    Update();
+                }
+
+            }
+        }
+
+        private void Button_Click_13(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_14(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_16(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_17(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_18(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
