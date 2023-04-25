@@ -170,14 +170,18 @@
                             Grid.Column="0"
                             Text="{Binding Id}" 
                             FontSize="16" />
-                        
                         <TextBlock 
                             Grid.Column="1"
-                            Text="{Binding Countryy.Id}" 
+                            Text="{Binding Name}" 
                             FontSize="16" />
+
                         <TextBlock 
                             Grid.Column="2"
-                            Text="{Binding Cityy.Id}" 
+                            Text="{Binding Countryy.Name}" 
+                            FontSize="16" />
+                        <TextBlock 
+                            Grid.Column="3"
+                            Text="{Binding Cityy.Name}" 
                             FontSize="16" />
 
 
@@ -250,7 +254,7 @@
         <Button Content="удолить" Margin="546,267,1042,0" Grid.Row="1" Click="Button_Click_5"/>
         <Button Content="изменить" Margin="93,267,1518,0" Grid.Row="1" Click="Button_Click_7"/>
         <Button Content="Удолить" Margin="177,267,1434,0" Grid.Row="1" Click="Button_Click_9"/>
-        <Button Content="изменить" Margin="93,69,1519,195" Grid.Row="1" Click="Button_Click_10"/>
+        <Button Content="изменить" Margin="93,69,1519,0" Grid.Row="1" Click="Button_Click_10" Height="61" VerticalAlignment="Top"/>
         <Button Content="удолить" Margin="178,69,1434,195" Grid.Row="1" Click="Button_Click_11"/>
         <Button Content="изменить" Margin="1297,37,351,202" Click="Button_Click_14"/>
         <Button Content="удолить" Margin="1344,37,304,202" Click="Button_Click_15"/>

@@ -33,21 +33,10 @@ namespace PR4
             var a = routee as Routee;
             if (a is Routee)
             {
-                routee = a;
-                DataContext = routee;
+                routees = a;
+                DataContext = routees;
             }
-            var b = routee as Countryy;
-            if (b is Countryy)
-            {
-                routee = a;
-                DataContext = routee;
-            }
-            var c = routee as Cityy;
-            if (c is Cityy)
-            {
-                routee = a;
-                DataContext = routee;
-            }
+            
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)

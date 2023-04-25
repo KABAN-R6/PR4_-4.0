@@ -12,8 +12,8 @@
         <TextBox Text="{Binding Name}" Margin="108,8,408,348" />
         <Button IsDefault="True" Content="Ok" Click="Accept_Click" Margin="35,284,665,80" />
         <Button IsCancel="True" Content="Отмена" Margin="141,284,550,80" Click="Button_Click" />
-        <TextBox Text="{Binding Cityy.Name}" Margin="108,91,408,265" TextChanged="TextBox_TextChanged_1" />
-        <TextBox Text="{Binding Country.Name}" Margin="108,188,408,168" TextChanged="TextBox_TextChanged" />
+        <TextBox Text="{Binding City}" Margin="108,91,408,265" TextChanged="TextBox_TextChanged_1" />
+        <TextBox Text="{Binding Country}" Margin="108,188,408,168" TextChanged="TextBox_TextChanged" />
         <TextBlock Text="Город" Margin="8,91,708,276" />
         <TextBlock Text="Страна" Margin="0,193,716,173" />
         <ListBox 

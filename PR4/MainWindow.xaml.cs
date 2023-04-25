@@ -73,6 +73,8 @@ namespace PR4
             List3.ItemsSource = countryys;
             Servicces = new ObservableCollection<Servicce>(db.Servicce);
             List7.ItemsSource = Servicces;
+            routees = new ObservableCollection<Routee>(db.Routee);
+            List5.ItemsSource = routees;
 
 
         }
@@ -246,12 +248,47 @@ namespace PR4
 
         private void Button_Click_10(object sender, RoutedEventArgs e)
         {
+            Routee routees = List5.SelectedItem as Routee;
+            if (routees == null) return;
+            routeadd entry = new routeadd(db, new Routee
+            {
+                Id = routees.Id,
+                Name = routees.Name,
+                Countryy = routees.Countryy,
+                Cityy = routees.Cityy,
+            });
+            if (entry.ShowDialog() == true)
+            {
+                routees = db.Routee.Find(entry.routees.Id);
+                if (routees != null)
+                {
+                    routees.Id = entry.routees.Id;
+                    routees.Name = entry.routees.Name;
+                    routees.Countryy = entry.routees.Countryy;
+                    routees.Cityy = entry.routees.Cityy;
 
+                    db.SaveChanges();
+                    List.Items.Refresh();
+                    Update();
+                }
+
+            }
         }
 
         private void Button_Click_11(object sender, RoutedEventArgs e)
         {
-
+            Routee routee = List5.SelectedItem as Routee;
+            if (routee == null) return;
+            try
+            {
+                db.Routee.Remove(routee);
+                db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
 
         private void Button_Click_9(object sender, RoutedEventArgs e)
