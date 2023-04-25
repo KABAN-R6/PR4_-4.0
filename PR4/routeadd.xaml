@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PR4"
         mc:Ignorable="d"
-        Title="routeadd" Height="450" Width="800">
+        Title="routeadd" Height="450" Width="779">
     <Grid>
         <TextBlock Text="Название" Margin="8,8,708,359" />
 
@@ -16,63 +16,6 @@
         <TextBox Text="{Binding Country}" Margin="108,188,408,168" TextChanged="TextBox_TextChanged" />
         <TextBlock Text="Город" Margin="8,91,708,276" />
         <TextBlock Text="Страна" Margin="0,193,716,173" />
-        <ListBox 
-            x:Name="List3" Margin="444,15,52,330" Height="NaN" Width="NaN"  SelectionMode="Single">
-            <ListBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.348"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ListBox.RenderTransform>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock 
-                            Grid.Column="0"
-                            Text="{Binding Id}" 
-                            FontSize="16" />
-                        <TextBlock 
-                            Grid.Column="1"
-                            Text="{Binding Name}" 
-                            FontSize="16" />
-
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox 
-            x:Name="List2" Margin="446,127,50,217" Height="NaN" Width="NaN" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="120"/>
-
-                        </Grid.ColumnDefinitions>
-                        <TextBlock 
-                            Grid.Column="0"
-                            Text="{Binding Id}" 
-                            FontSize="16" />
-                        <TextBlock 
-                            Grid.Column="1"
-                            Text="{Binding Name}" 
-                            FontSize="16" />
-
-
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
 
     </Grid>
 </Window>

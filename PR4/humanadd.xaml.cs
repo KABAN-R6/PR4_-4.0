@@ -19,9 +19,29 @@ namespace PR4
     /// </summary>
     public partial class humanadd : Window
     {
-        public humanadd()
+        Entities1 db;
+
+       
+        public Humann humann { get; private set; }
+
+        
+        public humanadd(Entities1 db, object humans)
         {
             InitializeComponent();
+
+            this.db = db;
+            var a = humans as Humann;
+            if (a is Humann)
+            {
+                humann = a;
+                DataContext = humann;
+            }
+
+        }
+
+        private void Accept_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

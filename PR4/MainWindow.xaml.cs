@@ -75,6 +75,10 @@ namespace PR4
             List7.ItemsSource = Servicces;
             routees = new ObservableCollection<Routee>(db.Routee);
             List5.ItemsSource = routees;
+            humanns = new ObservableCollection<Humann>(db.Humann);
+            List4.ItemsSource = humanns;
+            Hotells = new ObservableCollection<Hotell>(db.Hotell);
+            List6.ItemsSource = Hotells;
 
 
         }
@@ -336,42 +340,101 @@ namespace PR4
 
         private void Button_Click_13(object sender, RoutedEventArgs e)
         {
+            humanadd win = new humanadd(db, new Humann ());
+            if (win.ShowDialog() == true)
+            {
+                Humann humann = win.humann;
+                db.Humann.Add(humann);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch { }
+                Update();
 
+            }
         }
 
         private void Button_Click_14(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_Click_15(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_16(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_17(object sender, RoutedEventArgs e)
-        {
-            Countryy countryy = List3.SelectedItem as Countryy;
-            if (countryy == null) return;
-            countryadd entry = new countryadd(db, new Countryy
+            Humann humann = List4.SelectedItem as Humann;
+            if (humann == null) return;
+            humanadd entry = new humanadd(db, new Humann
             {
-                Id = countryy.Id,
-                Name = countryy.Name,
+                Id = humann.Id,
+                Full_name = humann.Full_name,
+                Age = humann.Age,
 
 
             });
             if (entry.ShowDialog() == true)
             {
-                countryy = db.Countryy.Find(entry.countryy.Id);
-                if (countryy != null)
+                humann = db.Humann.Find(entry.humann.Id);
+                if (humann != null)
                 {
-                    countryy.Id = entry.countryy.Id;
-                    countryy.Name = entry.countryy.Name;
+                    humann.Id = entry.humann.Id;
+                    humann.Full_name = entry.humann.Full_name;
+                    humann.Age = entry.humann.Age;
+
+                    db.SaveChanges();
+                    List.Items.Refresh();
+                    Update();
+                }
+
+            }
+        }
+
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
+            Humann humann = List4.SelectedItem as Humann;
+            if (humann == null) return;
+            try
+            {
+                db.Humann.Remove(humann);
+                db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+        }
+
+        private void Button_Click_16(object sender, RoutedEventArgs e)
+        {
+            oteladd win = new oteladd(db, new Hotell());
+            if (win.ShowDialog() == true)
+            {
+                Hotell hotell = win.hotell;
+                db.Hotell.Add(hotell);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch { }
+                Update();
+
+            }
+        }
+
+        private void Button_Click_17(object sender, RoutedEventArgs e)
+        {
+            Hotell hotell = List6.SelectedItem as Hotell;
+            if (hotell == null) return;
+            oteladd entry = new oteladd(db, new Hotell
+            {
+                Id = hotell.Id,
+                Name = hotell.Name,
+                Service = hotell.Service,
+
+            });
+            if (entry.ShowDialog() == true)
+            {
+                hotell = db.Hotell.Find(entry.hotell.Id);
+                if (hotell != null)
+                {
+                    hotell.Id = entry.hotell.Id;
+                    hotell.Name = entry.hotell.Name;
 
                     db.SaveChanges();
                     List.Items.Refresh();
@@ -383,7 +446,18 @@ namespace PR4
 
         private void Button_Click_18(object sender, RoutedEventArgs e)
         {
-
+            Hotell hotell = List6.SelectedItem as Hotell;
+            if (hotell == null) return;
+            try
+            {
+                db.Hotell.Remove(hotell);
+                db.SaveChanges();
+                Update();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
 
         private void Button_Click_43454(object sender, RoutedEventArgs e)

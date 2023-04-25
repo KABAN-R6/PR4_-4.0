@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="humanadd" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock Text="Фио" Margin="8,8,729,359" />
+
+        <TextBox Text="{Binding Full_name}" Margin="108,8,429,348" />
+        <Button IsDefault="True" Content="Ok" Click="Accept_Click" Margin="35,284,686,80" />
+        <Button IsCancel="True" Content="Отмена" Margin="141,284,571,80"  />
+        <TextBox Text="{Binding Age}" Margin="108,91,429,265"  />
+        <TextBlock Text="Возраст" Margin="8,91,729,276" />
+
     </Grid>
 </Window>

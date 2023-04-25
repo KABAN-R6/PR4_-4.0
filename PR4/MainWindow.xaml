@@ -8,7 +8,8 @@
         Title="MainWindow" Height="652" Width="1796">
     <Grid Background="Beige" Margin="0,0,0,-6" HorizontalAlignment="Center" Width="1796">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1691*"/>
+            <ColumnDefinition Width="272*"/>
+            <ColumnDefinition Width="1419*"/>
             <ColumnDefinition Width="106*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -17,10 +18,10 @@
         </Grid.RowDefinitions>
         <StackPanel 
             Orientation="Horizontal" 
-            Grid.Row="0" Margin="10,4,446,-34" Grid.RowSpan="2">
+            Grid.Row="0" Margin="10,4,446,-34" Grid.RowSpan="2" Grid.ColumnSpan="2">
         </StackPanel>
         <ListBox 
-            x:Name="List" Margin="1,21,1036,125" Height="NaN" Width="NaN" RenderTransformOrigin="0.5,0.5">
+            x:Name="List" Margin="1,21,1036,125" Height="NaN" Width="NaN" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -56,8 +57,8 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Content="Добавить" Margin="10,202,0,76" Click="Button_Click" HorizontalAlignment="Left" Width="212"/>
-        <Button Content="Изменить" Margin="244,202,1282,76" Click="Button_Click_1"/>
-        <Button Content="Удалить" Margin="427,202,1039,74" Click="Button_Click_2" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Изменить" Margin="244,202,1282,76" Click="Button_Click_1" Grid.ColumnSpan="2"/>
+        <Button Content="Удалить" Margin="156,202,1039,74" Click="Button_Click_2" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -68,7 +69,7 @@
             </Button.RenderTransform>
         </Button>
         <ListBox 
-            x:Name="List2" Margin="10,168,1376,67" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1">
+            x:Name="List2" Margin="10,168,1376,67" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -92,7 +93,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox 
-            x:Name="List3" Margin="352,169,1034,67" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1" SelectionMode="Single">
+            x:Name="List3" Margin="80,169,1034,67" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1" SelectionMode="Single" Grid.Column="1">
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -125,7 +126,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox 
-            x:Name="List4" Margin="746,34,446,122" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged">
+            x:Name="List4" Margin="474,34,446,122" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -155,7 +156,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox 
-            x:Name="List5" Margin="10,246,1034,256" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.RowSpan="2">
+            x:Name="List5" Margin="10,246,1034,256" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -190,7 +191,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox 
-            x:Name="List6" Margin="746,246,512,256" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.RowSpan="2">
+            x:Name="List6" Margin="474,246,512,256" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.RowSpan="2" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -220,7 +221,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox 
-            x:Name="List7" Margin="746,119,512,75" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1">
+            x:Name="List7" Margin="474,119,512,75" Height="NaN" Width="NaN" SelectionChanged="List2_SelectionChanged" Grid.Row="1" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -244,29 +245,29 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="+" Margin="352,267,1256,0" Click="Button_Click_3" Grid.Row="1"/>
-        <Button Content="+" Margin="10,267,1602,0" Grid.Row="1" Click="Button_Click_6" Height="58" VerticalAlignment="Top"/>
-        <Button Content="+" Margin="1189,119,459,130" Click="Button_Click_43454" Grid.Row="1"/>
-        <Button Content="+" Margin="1184,246,464,300" Grid.RowSpan="2" Click="Button_Click_16"/>
-        <Button Content="+" Margin="10,69,1602,195" Grid.Row="1" Click="Button_Click_8"/>
-        <Button Content="+" Margin="1250,36,398,202" Click="Button_Click_13"/>
-        <Button Content="Изменить" Margin="439,267,1150,0" Grid.Row="1" Click="Button_Click_12"/>
-        <Button Content="удолить" Margin="546,267,1042,0" Grid.Row="1" Click="Button_Click_5"/>
-        <Button Content="изменить" Margin="93,267,1518,0" Grid.Row="1" Click="Button_Click_7"/>
-        <Button Content="Удолить" Margin="177,267,1434,0" Grid.Row="1" Click="Button_Click_9"/>
-        <Button Content="изменить" Margin="93,69,1519,0" Grid.Row="1" Click="Button_Click_10" Height="61" VerticalAlignment="Top"/>
-        <Button Content="удолить" Margin="178,69,1434,195" Grid.Row="1" Click="Button_Click_11"/>
-        <Button Content="изменить" Margin="1297,37,351,202" Click="Button_Click_14"/>
-        <Button Content="удолить" Margin="1344,37,304,202" Click="Button_Click_15"/>
-        <Button Content="изменить" Margin="1229,246,419,300" Grid.RowSpan="2" Click="Button_Click_17"/>
-        <Button Content="удолить" Margin="1276,246,372,300" Grid.RowSpan="2" Click="Button_Click_18"/>
-        <Button Content="изменить" Margin="1236,119,412,129" Click="Button_Click_445345" Grid.Row="1"/>
-        <Button Content="удолить" Margin="1283,118,365,130" Click="Button_Click_445" Grid.Row="1"/>
-        <TextBlock TextWrapping="Wrap" Text="Услуги" Margin="746,89,823,206" Grid.Row="1"/>
-        <TextBlock TextWrapping="Wrap" Text="отели" Margin="746,217,823,71"/>
-        <TextBlock TextWrapping="Wrap" Margin="746,10,823,283"><Run Language="ru-ru" Text="Люди"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" Text="Страна" Margin="352,142,1217,153" Grid.Row="1"/>
-        <TextBlock TextWrapping="Wrap" Text="Город" Margin="10,139,1558,157" Grid.Row="1"/>
+        <Button Content="+" Margin="80,267,1256,0" Click="Button_Click_3" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="+" Margin="10,267,184,0" Grid.Row="1" Click="Button_Click_6" Height="58" VerticalAlignment="Top"/>
+        <Button Content="+" Margin="918,119,459,130" Click="Button_Click_43454" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="+" Margin="912,246,464,300" Grid.RowSpan="2" Click="Button_Click_16" Grid.Column="1"/>
+        <Button Content="+" Margin="10,69,184,195" Grid.Row="1" Click="Button_Click_8"/>
+        <Button Content="+" Margin="978,36,398,202" Click="Button_Click_13" Grid.Column="1"/>
+        <Button Content="Изменить" Margin="168,267,1150,0" Grid.Row="1" Click="Button_Click_12" Grid.Column="1"/>
+        <Button Content="удолить" Margin="274,267,1042,0" Grid.Row="1" Click="Button_Click_5" Grid.Column="1"/>
+        <Button Content="изменить" Margin="93,267,100,0" Grid.Row="1" Click="Button_Click_7"/>
+        <Button Content="Удолить" Margin="177,267,16,0" Grid.Row="1" Click="Button_Click_9"/>
+        <Button Content="изменить" Margin="93,69,100,0" Grid.Row="1" Click="Button_Click_10" Height="61" VerticalAlignment="Top"/>
+        <Button Content="удолить" Margin="178,69,16,195" Grid.Row="1" Click="Button_Click_11"/>
+        <Button Content="изменить" Margin="1026,37,351,202" Click="Button_Click_14" Grid.Column="1"/>
+        <Button Content="удолить" Margin="1072,37,304,202" Click="Button_Click_15" Grid.Column="1"/>
+        <Button Content="изменить" Margin="958,246,419,300" Grid.RowSpan="2" Click="Button_Click_17" Grid.Column="1"/>
+        <Button Content="удолить" Margin="1004,246,372,300" Grid.RowSpan="2" Click="Button_Click_18" Grid.Column="1"/>
+        <Button Content="изменить" Margin="964,119,412,129" Click="Button_Click_445345" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="удолить" Margin="1012,118,365,130" Click="Button_Click_445" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock TextWrapping="Wrap" Text="Услуги" Margin="474,89,823,206" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock TextWrapping="Wrap" Text="отели" Margin="474,217,823,71" Grid.Column="1"/>
+        <TextBlock TextWrapping="Wrap" Margin="474,10,823,283" Grid.Column="1"><Run Language="ru-ru" Text="Люди"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Text="Страна" Margin="80,142,1217,153" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock TextWrapping="Wrap" Text="Город" Margin="10,139,140,157" Grid.Row="1"/>
 
     </Grid>
 </Window>
